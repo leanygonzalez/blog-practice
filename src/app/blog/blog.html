@@ -1,1 +1,60 @@
-<p>blog works!</p>
+<div class="container">
+  <h2>Publicar noticia</h2>
+
+  <div *ngIf="errorMensaje" class="error">
+    {{ errorMensaje }}
+  </div>
+
+  <form (ngSubmit)="agregarNoticia()">
+    <label>
+      Título:
+      <input
+        type="text"
+        [(ngModel)]="nuevaNoticia.titulo"
+        name="titulo"
+      />
+    </label>
+
+    <label>
+      URL de la imagen:
+      <input
+        type="text"
+        [(ngModel)]="nuevaNoticia.imagenUrl"
+        name="imagenUrl"
+      />
+    </label>
+
+    <label>
+      Texto:
+      <textarea
+        [(ngModel)]="nuevaNoticia.texto"
+        name="texto"
+      ></textarea>
+    </label>
+
+    <label>
+      Fecha:
+      <input
+        type="date"
+        [(ngModel)]="nuevaNoticia.fecha"
+        name="fecha"
+      />
+    </label>
+
+    <button type="submit">Publicar</button>
+  </form>
+
+  <hr />
+
+  <h2>Listado de noticias</h2>
+  <div *ngFor="let noticia of noticias" class="noticia">
+    <h3>{{ noticia.titulo }}</h3>
+    <img
+      [src]="noticia.imagenUrl"
+      alt="Imagen noticia"
+    />
+    <p>{{ noticia.texto }}</p>
+    <small>Publicado el: {{ noticia.fecha }}</small>
+    <hr />
+  </div>
+</div>
