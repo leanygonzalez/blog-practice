@@ -8,12 +8,7 @@ import { Noticia } from './noticia.model';
 })
 export class BlogComponent implements OnInit {
   noticias: Noticia[] = [];
-  nuevaNoticia: Noticia = {
-    titulo: '',
-    imagenUrl: '',
-    texto: '',
-    fecha: ''
-  };
+  nuevaNoticia: Noticia = { titulo: '', imagenUrl: '', texto: '', fecha: '' };
   errorMensaje = '';
 
   ngOnInit(): void {
@@ -36,12 +31,10 @@ export class BlogComponent implements OnInit {
   agregarNoticia(): void {
     this.errorMensaje = '';
     const { titulo, imagenUrl, texto, fecha } = this.nuevaNoticia;
-
     if (!titulo || !imagenUrl || !texto || !fecha) {
       this.errorMensaje = 'Todos los campos son obligatorios.';
       return;
     }
-
     this.noticias.unshift({ ...this.nuevaNoticia });
     this.nuevaNoticia = { titulo: '', imagenUrl: '', texto: '', fecha: '' };
   }
