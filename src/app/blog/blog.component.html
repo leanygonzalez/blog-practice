@@ -4,14 +4,13 @@
   <div *ngIf="errorMensaje" class="error">
     {{ errorMensaje }}
   </div>
-
   <form (ngSubmit)="agregarNoticia()">
     <label>
       Título:
       <input
         type="text"
-        [(ngModel)]="nuevaNoticia.titulo"
         name="titulo"
+        [(ngModel)]="nuevaNoticia.titulo"
       />
     </label>
 
@@ -19,16 +18,16 @@
       URL de la imagen:
       <input
         type="text"
-        [(ngModel)]="nuevaNoticia.imagenUrl"
         name="imagenUrl"
+        [(ngModel)]="nuevaNoticia.imagenUrl"
       />
     </label>
 
     <label>
       Texto:
       <textarea
-        [(ngModel)]="nuevaNoticia.texto"
         name="texto"
+        [(ngModel)]="nuevaNoticia.texto"
       ></textarea>
     </label>
 
@@ -36,8 +35,8 @@
       Fecha:
       <input
         type="date"
-        [(ngModel)]="nuevaNoticia.fecha"
         name="fecha"
+        [(ngModel)]="nuevaNoticia.fecha"
       />
     </label>
 
@@ -46,15 +45,8 @@
 
   <hr />
 
+
   <h2>Listado de noticias</h2>
   <div *ngFor="let noticia of noticias" class="noticia">
     <h3>{{ noticia.titulo }}</h3>
     <img
-      [src]="noticia.imagenUrl"
-      alt="Imagen noticia"
-    />
-    <p>{{ noticia.texto }}</p>
-    <small>Publicado el: {{ noticia.fecha }}</small>
-    <hr />
-  </div>
-</div>
