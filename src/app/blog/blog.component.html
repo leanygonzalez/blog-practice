@@ -1,33 +1,19 @@
-<div class="container">
-  <h2>Publicar Noticia</h2>
-  <form (ngSubmit)="agregarNoticia()">
-    <div *ngIf="errorMensaje" class="error">{{ errorMensaje }}</div>
+<div class="formulario">
+  <h2>Agregar nueva noticia</h2>
+  <input type="text" placeholder="Título" [(ngModel)]="nuevaNoticia.titulo" />
+  <input type="text" placeholder="URL de imagen" [(ngModel)]="nuevaNoticia.imagenUrl" />
+  <textarea placeholder="Texto" [(ngModel)]="nuevaNoticia.texto"></textarea>
+  <input type="date" [(ngModel)]="nuevaNoticia.fecha" />
+  <button (click)="agregarNoticia()">Agregar</button>
+  <p class="error" *ngIf="errorMensaje">{{ errorMensaje }}</p>
+</div>
 
-    <label>Título:
-      <input type="text" [(ngModel)]="nuevaNoticia.titulo" name="titulo" required />
-    </label>
-
-    <label>URL de imagen:
-      <input type="text" [(ngModel)]="nuevaNoticia.imagenUrl" name="imagenUrl" required />
-    </label>
-
-    <label>Texto:
-      <textarea [(ngModel)]="nuevaNoticia.texto" name="texto" required></textarea>
-    </label>
-
-    <label>Fecha:
-      <input type="date" [(ngModel)]="nuevaNoticia.fecha" name="fecha" required />
-    </label>
-
-    <button type="submit">Agregar Noticia</button>
-  </form>
-
-  <hr />
-
+<div class="noticias">
+  <h2>Lista de noticias</h2>
   <div *ngFor="let noticia of noticias" class="noticia">
     <h3>{{ noticia.titulo }}</h3>
     <img [src]="noticia.imagenUrl" alt="Imagen de la noticia" />
     <p>{{ noticia.texto }}</p>
-    <small>Publicado el: {{ noticia.fecha }}</small>
+    <small>{{ noticia.fecha }}</small>
   </div>
 </div>

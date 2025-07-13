@@ -4,3 +4,4 @@ export interface Noticia {
   texto: string;
   fecha: string;
 }
+
