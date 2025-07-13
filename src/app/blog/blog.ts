@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-blog',
-  imports: [],
+ import: [{Noticia}] from './noticia.model';
   templateUrl: './blog.html',
   styleUrl: './blog.css'
 })
